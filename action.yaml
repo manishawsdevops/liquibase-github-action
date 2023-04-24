@@ -5,6 +5,10 @@ inputs:
     description: "Connection URL for the Database"
     required: true
     default: "JDBC:<URL>"
+  DB_PASSWORD:
+    description: "Connection URL for the Database"
+    required: true
+    default: "PASSWORD"
   who-to-greet: # id of input
     description: "Who to greet"
     required: true
@@ -18,3 +22,4 @@ runs:
   args:
     - ${{ inputs.who-to-greet }}
     - ${{ inputs.DB_URL }}
+    - ${{ inputs.DB_PASSWORD}}
