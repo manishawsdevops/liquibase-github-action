@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
 echo "Hello $1"
-echo "Heloo $who-to-greet"
+echo "DB_URL: $2"
 echo "Testing the Github Actions Creation"
 time=$(date)
 ls

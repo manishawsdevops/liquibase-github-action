@@ -1,6 +1,10 @@
 name: "Hello World"
 description: "Greet someone and record the time"
 inputs:
+  DB_URL:
+    description: "Connection URL for the Database"
+    required: true
+    default: "JDBC:<URL>"
   who-to-greet: # id of input
     description: "Who to greet"
     required: true
@@ -13,3 +17,4 @@ runs:
   image: "Dockerfile"
   args:
     - ${{ inputs.who-to-greet }}
+    - ${{ inputs.DB_URL }}
