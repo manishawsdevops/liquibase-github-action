@@ -9,8 +9,8 @@ echo "Dry_Run: $6"
 
 echo "Deploying objects into $4 Environment"
 
-if [ "$4" = "snowflake"]; then
-    driver = "net.snowflake.client.jdbc.SnowflakeDriver"
+if [ "$4" = "snowflake" ]; then
+    driver="net.snowflake.client.jdbc.SnowflakeDriver"
 fi
 
 echo "Checking the Connection for $4 Environment"
@@ -20,7 +20,8 @@ echo "Executing the Pre-check the SQL objects into $4 Env"
 liquibase --url="$1" --username="$2" --password="$3" --driver="$driver" --changeLogFile="$5" updateSQL
 
 echo "Deploying objects into $4 Environment"
-if [ "$6" = "No"]; then
+if [ "$6" = "No" ]; then
     echo "Executing update SQL in $4 environment"
+    # Uncomment the following line to execute the liquibase update command
     # liquibase --url="$1" --username="$2" --password="$3" --driver="$driver" --changeLogFile="$5" update
 fi
