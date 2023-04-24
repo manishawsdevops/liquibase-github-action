@@ -21,6 +21,10 @@ inputs:
     description: "Provide the changelog file path relative to github repo"
     required: false
     default: "changelog.sf.xml"
+  DRY_RUN:
+    description: "Mention if this is a Dry Run"
+    required: false
+    default: "Yes"
 
 outputs:
   time: # id of output
@@ -34,3 +38,4 @@ runs:
     - ${{ inputs.DB_PASSWORD}}
     - ${{ inputs.DB_FAMILY}}
     - ${{ inputs.DB_CHANGELOGFILE}}
+    - ${{ inputs.DRY_RUN}}
