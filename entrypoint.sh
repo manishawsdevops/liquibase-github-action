@@ -21,7 +21,6 @@ liquibase --url="$1" --username="$2" --password="$3" --driver="$driver" --change
 
 echo "Deploying objects into $4 Environment"
 if [ "$6" = "No" ]; then
-    echo "Executing update SQL in $4 environment"
-    # Uncomment the following line to execute the liquibase update command
-    # liquibase --url="$1" --username="$2" --password="$3" --driver="$driver" --changeLogFile="$5" update
+    echo "Executing update in $4 environment"
+    liquibase --url="$1" --username="$2" --password="$3" --driver="$driver" --changeLogFile="$5" update
 fi
