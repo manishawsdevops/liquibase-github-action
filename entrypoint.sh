@@ -18,7 +18,7 @@ echo "Checking the Connection for $4 Environment"
 liquibase --url="$1" --username="$2" --password="$3" --driver="$driver" --changeLogFile="$5" status --verbose
 
 echo "Executing the Pre-check the SQL objects into $4 Env"
-liquibase --url="$1" --username="$2" --password="$3" --driver="$driver" --changeLogFile="$5" status --verbose
+liquibase --url="$1" --username="$2" --password="$3" --driver="$driver" --changeLogFile="$5" updateSQL
 
 echo "Deploying objects into $4 Environment"
 if [ $6 == "No"]
