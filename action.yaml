@@ -9,10 +9,10 @@ inputs:
     description: "Connection URL for the Database"
     required: true
     default: "PASSWORD"
-  who-to-greet: # id of input
-    description: "Who to greet"
+  DB_FAMILY:
+    description: "Provide the DB FAMILY name like - postgress, snowflake"
     required: true
-    default: "World"
+    default: "DB_FAMILY"
 outputs:
   time: # id of output
     description: "The time we greeted you"
@@ -23,3 +23,4 @@ runs:
     - ${{ inputs.who-to-greet }}
     - ${{ inputs.DB_URL }}
     - ${{ inputs.DB_PASSWORD}}
+    - ${{ inputs.DB_FAMILY}}
