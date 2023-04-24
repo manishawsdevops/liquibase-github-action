@@ -1,11 +1,15 @@
 #!/bin/sh -l
 
-echo "Hello $1"
-echo "DB_URL: $2"
+echo "DB_URL: $1"
+echo "DB_USERNAME: $2"
 echo "DB_PASSWORD: $3"
 echo "DB_FAMILY: $4"
-echo "Testing the Github Actions Creation"
-time=$(date)
+echo "DB_CHANGELOGFILE: $5"
+echo "Testing the Deployment into Snowflake"
+
 ls
-liquibase --version
-echo "time=$time" >> $GITHUB_OUTPUT
+
+liquibase --url="$1" --username="$2" --password="$3" --driver="net.snowflake.client.jdbc.SnowflakeDriver" --changeLogFile="$5" status --verbose
+
+# time=$(date)
+# echo "time=$time" >> $GITHUB_OUTPUT

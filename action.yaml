@@ -6,13 +6,22 @@ inputs:
     required: true
     default: "JDBC:<URL>"
   DB_PASSWORD:
-    description: "Connection URL for the Database"
+    description: "Connection Password for the Database"
     required: true
     default: "PASSWORD"
+  DB_USERNAME:
+    description: "Connection Username for the Database"
+    required: true
+    default: "USERNAME"
   DB_FAMILY:
     description: "Provide the DB FAMILY name like - postgress, snowflake"
     required: true
     default: "DB_FAMILY"
+  DB_CHANGELOGFILE:
+    description: "Provide the changelog file path relative to github repo"
+    required: false
+    default: "changelog.sf.xml"
+
 outputs:
   time: # id of output
     description: "The time we greeted you"
@@ -20,7 +29,8 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.who-to-greet }}
     - ${{ inputs.DB_URL }}
+    - ${{ inputs.DB_USERNAME }}
     - ${{ inputs.DB_PASSWORD}}
     - ${{ inputs.DB_FAMILY}}
+    - ${{ inputs.DB_CHANGELOGFILE}}
